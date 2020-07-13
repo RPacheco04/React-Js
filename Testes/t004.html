@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 004</title>
+    <style>
+        .cor_texto {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Estilo em componentes</h1>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class App extends React.Component{
+            
+            render(){
+
+                const estilo1 = {
+                    color:"red", 
+                    backgroundColor: "blue", 
+                    padding:"20px"
+                }
+
+                return(
+                    <div>
+                        <p style={estilo1}>
+                            Variável de estilo</p>
+                        <p style={{color:"red", backgroundColor: "blue", padding: "20px"}}>Passando na tag</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App/>,
+            document.querySelector('#root')
+        )
+        
+
+    </script>
+
+</body>
+
+</html>
