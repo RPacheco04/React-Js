@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React 004</title>
+    <title>React 005</title>
 </head>
 
 <body>
-    <h1>Estilo em componentes</h1>
+    <h1>State</h1>
     <div id="root"></div>
 
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -16,31 +16,36 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
+        
+        const nome = 'Ricardo';
+        const idade = 15;
 
         class App extends React.Component{
-            
-            render(){
 
-                const estilo1 = {
-                    color:"red", 
-                    backgroundColor: "blue", 
-                    padding:"20px"
+            constructor(){
+                super()
+                
+                this.state = {
+                    nome: nome,
+                    idade: idade
                 }
+            }
 
+            render(){
                 return(
                     <div>
-                        <p style={estilo1}>
-                            Variável de estilo</p>
-                        <p style={{color:"red", backgroundColor: "blue", padding: "20px"}}>Passando na tag</p>
+                        <p>Nome: {this.state.nome} {this.props.sobrenome}</p>
+                        <p>Idade: {this.state.idade}</p>
                     </div>
                 )
+                //State pode ser alterado diretamente, props não
             }
         }
 
         ReactDOM.render(
-            <App/>,
+            <App sobrenome="Pacheco"/>,
             document.querySelector('#root')
-        ) 
+        )
 
     </script>
 
