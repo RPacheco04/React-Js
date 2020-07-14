@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 009</title>
+</head>
+
+<body>
+    <h1>Passando funções como parâmetros</h1>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <script type="text/babel">
+
+        const App = () => {
+
+            const func1 = txt => {
+                console.log(txt + ' testando func1');
+            }
+
+            const func2 = txt => {
+                console.log(txt + ' testando func2');
+            }
+
+            return (
+                <div>
+                    <p>Texto do App</p>
+                    <Comp met1={func1} met2={func2} />
+                </div>
+            )
+
+        }
+
+        const Comp = props => {
+            return (
+                <div>
+                    <p>Texto do componente</p>
+                    <button onClick={() => props.met1('CLICK1')}>
+                        Clicar1
+                    </button>
+                    <br />
+                    <button onClick={() => props.met2('CLICK2')}>
+                        Clicar2
+                    </button>
+                </div>
+            )
+        }
+
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React 009</title>
+    <title>React 006</title>
 </head>
 
 <body>
@@ -17,48 +17,34 @@
 
     <script type="text/babel">
         
-        const nome_ = "Ricardo Pacheco";
-        const idade_ = 15;
+        const Identificação = () => {
+            const [nome, setNome] = React.useState('Ricardo Pacheco');
+            const [idade, setIdade] = React.useState(15);
 
-        class Identificação extends React.Component{
-            constructor(){
-                super()
-                this.state = {
-                    nome: nome_,
-                    idade: idade_
-                }
-            }
-            render(){
-                return(
-                    <div>
-                        <Nome nome={this.state.nome}/>
-                        <Idade idade={this.state.idade}/>
-                    </div>
-                )
-            }
+            return (
+                <div>
+                    <Nome nome={nome} />
+                    <Idade idade={idade} />
+                </div>
+            )
         }
 
-        class Nome extends React.Component{
-            render(){
-                return(
-                    <p>Nome: {this.props.nome}</p>
-                )
-            }
+        const Nome = (props) => {
+            return (
+                <p>Nome: {props.nome}</p>
+            )
         }
 
-        class Idade extends React.Component{
-            render(){
-                return(
-                    <p>Idade: {this.props.idade}</p>
-                )
-            }
+        const Idade = (props) => {
+            return (
+                <p>Idade: {props.idade}</p>
+            )
         }
 
         ReactDOM.render(
-            <Identificação/>,
+            <Identificação />,
             document.querySelector('#root')
         );
-
     </script>
 
 </body>

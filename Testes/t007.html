@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 007</title>
+</head>
+<body>
+    <h1>Chamada de métodos e atualizando state</h1>
+    <div id="root"></div>
+    
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+    const App = () => {
+
+        const[nome, setNome] = React.useState("Ricardo");
+
+        const click = () => {
+            setNome("Guilherme")
+        }
+
+        return(
+            <div>
+                <p>Nome: {nome}</p>
+                <button onClick={() => click()}>Confirmar</button>
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.querySelector('#root')
+    )
+    
+    </script>
+
+</body>
+</html>

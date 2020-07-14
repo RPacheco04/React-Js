@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf8mb4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício React (008)</title>
+</head>
+
+<body>
+    <div id="programa"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const a1 = 'Ricardo';
+        const a2 = 'Yago';
+        const a3 = 'João';
+
+        const b1 = 'Pacheco';
+        const b2 = 'Gehres';
+        const b3 = 'Antônio';
+
+        const App = () => {
+            return (
+                <div>
+                    <h1>Exercício</h1>
+                    <hr />
+                    <Comp nome={a1} novo={b1} />
+                    <Comp nome={a2} novo={b2} />
+                    <Comp nome={a3} novo={b3} />
+                </div>
+            )
+        }
+
+        const Comp = props => {
+            
+            const [Nome, setNome] = React.useState(props.nome);
+
+            const click = () => {
+                if (Nome == props.nome) {
+                    setNome(props.novo)
+                }
+                else {
+                    setNome(props.nome)
+                }
+            }
+            
+            return (
+                <div>
+                    <p>Nome: {Nome}</p>
+                    <button onClick={() => {click()}}>Alterar</button>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <App />, 
+            document.querySelector('#programa'))
+
+    </script>
+</body>
+
+</html>
