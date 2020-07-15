@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React 019</title>
+    <title>Exercício React (012)</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <script type="text/babel">
 
 
-        const clientes = [
+        const clients = [
             {
                 nome: 'João',
                 idade: 46
@@ -34,10 +34,10 @@
             }
         ]
 
-        const ShowCliente = (props) => {
+        const ShowClient = (props) => {
             return (
                 <div>
-                    <p>Id: {props.ind}</p>
+                    <p>Cliente número: {props.ind}</p>
                     <p>Nome: {props.client.nome}</p>
                     <p>Idade: {props.client.idade}</p>
                     <hr />
@@ -45,9 +45,9 @@
             )
         }
 
-        const final = clientes.map(
+        const final = clients.map(
             (cliente, id) =>
-                <ShowCliente
+                <ShowClient
                     key={parseInt(id) + 1}
                     ind={parseInt(id) + 1}
                     client={cliente}

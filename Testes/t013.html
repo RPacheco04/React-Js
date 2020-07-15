@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 013</title>
+</head>
+
+<body>
+    <h1>Evento onChange</h1>
+    <div id='root'></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type='text/babel'>
+
+        const App = () => {
+
+            const [Nome, setNome] = React.useState('');
+
+            const changeNome = (event) => {
+                setNome(event.target.value)
+            }
+
+            return (
+                <div>
+                    <input 
+                        type="text"
+                        value={Nome}
+                        onChange={changeNome}
+                    />
+                    <p>Valor: {Nome}</p>
+                </div>
+            )
+        }
+    
+
+        //-----------------------------------//
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+
+    </script>
+</body>
+
+</html>

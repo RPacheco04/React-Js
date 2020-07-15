@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício React (015)</title>
+</head>
+<body>
+
+    <h1>Tela de Login</h1>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type='text/babel'>
+
+        const App = () => {
+
+            const [Username, setUsername] = React.useState('');
+            const [Password, setPassword] = React.useState('');
+
+
+            const changeUsername = () => {
+                setUsername(event.target.value)
+            };
+
+            const changePassword = () => {
+                setPassword(event.target.value)
+            };
+
+            const submitForm = event => {
+                console.log(`Username: ${Username}`);
+                console.log(`Password: ${Password}`);
+                event.preventDefault()
+            }
+            
+            return (
+                    <form onSubmit={submitForm}>
+                        <input
+                            type="text"
+                            value={Username}
+                            onChange={changeUsername}
+                            placeholder='Username'
+                        /> <br />
+                        <input
+                            type="password"
+                            value={Password}
+                            onChange={changePassword}
+                            placeholder='Password'
+                        /> <br />
+                        <button>Entrar</button>
+                    </form>
+            )
+        }
+
+
+
+
+        //------------------------------------------//
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+
+</html>
