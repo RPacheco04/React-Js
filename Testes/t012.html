@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 019</title>
+</head>
+
+<body>
+
+    <h1>Exercício com Map</h1>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+
+        const clientes = [
+            {
+                nome: 'João',
+                idade: 46
+            },
+            {
+                nome: 'Ana',
+                idade: 25
+            },
+            {
+                nome: 'Guilherme',
+                idade: 23
+            }
+        ]
+
+        const ShowCliente = (props) => {
+            return (
+                <div>
+                    <p>Id: {props.ind}</p>
+                    <p>Nome: {props.client.nome}</p>
+                    <p>Idade: {props.client.idade}</p>
+                    <hr />
+                </div>
+            )
+        }
+
+        const final = clientes.map(
+            (cliente, id) =>
+                <ShowCliente
+                    key={parseInt(id) + 1}
+                    ind={parseInt(id) + 1}
+                    client={cliente}
+                />
+        )
+
+        const App = () => {
+            return (
+                <div>
+                    {final}
+                </div>
+            )
+        }
+
+
+        //-------------------------------//
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+
+    </script>
+
+</body>
+
+</html>
